@@ -13,8 +13,22 @@ Install required packages using the following command:
 ```
 pip install -r requirements.txt
 ```
-Claude API key is required for running the code. Please visit the [Anthropic website](https://docs.anthropic.com/en/docs/getting-access-to-claude) 
-for more information
+An OpenRouter API key is required for the default setup in this checkout. Set it
+with `OPENROUTER_API_KEY`, `OPENROUTER_API_KEY_FILE`, or save it in
+`.openrouter_api_key` at the repository root. The LLM call path uses
+OpenRouter's OpenAI-compatible endpoint by default.
+
+To override the routed model for all runs, set `OPENROUTER_MODEL`, for example:
+
+```
+export OPENROUTER_MODEL=openai/gpt-4o
+```
+
+To temporarily use the original direct providers, set:
+
+```
+export BIODISCOVERY_LLM_PROVIDER=direct
+```
 
 ## Datasets
 

@@ -1,0 +1,40 @@
+/mnt/c/Users/Jordan/Documents/CT.gov data processing/Autoscreen/Autoscreen/BioDiscoveryAgent/research_assistant.py:301: SyntaxWarning: invalid escape sequence '\c'
+  research_problem = """Create a bibtex_generation.py file that contains an LLM based AI system for the task of bibtex generation. The LLM should be accessed through API as in LLM_example.py.
+Log directory:  biodiscovery_gpt54_biogrid_BIOGRID1338/test_BIOGRID1338
+Dropped genes: 18
+New genes predicted: 227
+Dropped genes: 32
+New genes predicted: 193
+Dropped genes: 31
+New genes predicted: 188
+Dropped genes: 23
+New genes predicted: 205
+Dropped genes: 51
+New genes predicted: 136
+Dropped genes: 23
+New genes predicted: 28
+Dropped genes: 14
+New genes predicted: 8
+Dropped genes: 8
+New genes predicted: 7
+Dropped genes: 4
+New genes predicted: 4
+Dropped genes: 2
+New genes predicted: 2
+Dropped genes: 1
+New genes predicted: 1
+Dropped genes: 1
+New genes predicted: 0
+Dropped genes: 1
+New genes predicted: 0
+Dropped genes: 0
+New genes predicted: 0
+Dropped genes: 0
+New genes predicted: 0
+Dropped genes: 1
+New genes predicted: 0
+Dropped genes: 1
+New genes predicted: 0
+  0%|          | 0/18 [00:00<?, ?it/s]  6%|▌         | 1/18 [00:01<00:29,  1.72s/it] 11%|█         | 2/18 [00:03<00:29,  1.87s/it] 17%|█▋        | 3/18 [00:05<00:28,  1.88s/it] 22%|██▏       | 4/18 [00:07<00:26,  1.86s/it] 28%|██▊       | 5/18 [00:09<00:24,  1.91s/it] 33%|███▎      | 6/18 [00:11<00:23,  2.00s/it] 39%|███▉      | 7/18 [00:13<00:21,  1.96s/it] 44%|████▍     | 8/18 [00:15<00:20,  2.08s/it] 50%|█████     | 9/18 [00:17<00:18,  2.04s/it] 56%|█████▌    | 10/18 [00:19<00:16,  2.02s/it] 61%|██████    | 11/18 [00:22<00:14,  2.12s/it] 67%|██████▋   | 12/18 [00:24<00:12,  2.11s/it] 72%|███████▏  | 13/18 [00:25<00:10,  2.02s/it] 78%|███████▊  | 14/18 [00:27<00:07,  1.89s/it] 83%|████████▎ | 15/18 [00:29<00:05,  1.94s/it] 89%|████████▉ | 16/18 [00:31<00:04,  2.02s/it] 94%|█████████▍| 17/18 [00:33<00:01,  1.91s/it]100%|██████████| 18/18 [00:35<00:00,  1.88s/it]100%|██████████| 18/18 [00:35<00:00,  1.96s/it]
+Dropped genes: 0
+New genes predicted: 1

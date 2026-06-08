@@ -1,0 +1,40 @@
+/mnt/c/Users/Jordan/Documents/CT.gov data processing/Autoscreen/Autoscreen/BioDiscoveryAgent/research_assistant.py:301: SyntaxWarning: invalid escape sequence '\c'
+  research_problem = """Create a bibtex_generation.py file that contains an LLM based AI system for the task of bibtex generation. The LLM should be accessed through API as in LLM_example.py.
+Log directory:  biodiscovery_gpt54_biogrid_BIOGRID1350/test_BIOGRID1350
+Dropped genes: 56
+New genes predicted: 188
+Dropped genes: 48
+New genes predicted: 185
+Dropped genes: 93
+New genes predicted: 140
+Dropped genes: 106
+New genes predicted: 117
+Dropped genes: 143
+New genes predicted: 74
+Dropped genes: 96
+New genes predicted: 127
+Dropped genes: 117
+New genes predicted: 51
+Dropped genes: 73
+New genes predicted: 44
+Dropped genes: 58
+New genes predicted: 16
+Dropped genes: 53
+New genes predicted: 4
+Dropped genes: 44
+New genes predicted: 8
+Dropped genes: 34
+New genes predicted: 7
+Dropped genes: 36
+New genes predicted: 3
+Dropped genes: 34
+New genes predicted: 2
+Dropped genes: 26
+New genes predicted: 8
+Dropped genes: 21
+New genes predicted: 5
+Dropped genes: 20
+New genes predicted: 1
+  0%|          | 0/16 [00:00<?, ?it/s]  6%|▋         | 1/16 [00:02<00:30,  2.03s/it] 12%|█▎        | 2/16 [00:04<00:28,  2.03s/it] 19%|█▉        | 3/16 [00:05<00:25,  1.98s/it] 25%|██▌       | 4/16 [00:07<00:22,  1.91s/it] 31%|███▏      | 5/16 [00:09<00:20,  1.88s/it] 38%|███▊      | 6/16 [00:11<00:20,  2.00s/it] 44%|████▍     | 7/16 [00:13<00:17,  1.91s/it] 50%|█████     | 8/16 [00:15<00:15,  1.94s/it] 56%|█████▋    | 9/16 [00:17<00:12,  1.85s/it] 62%|██████▎   | 10/16 [00:20<00:13,  2.20s/it] 69%|██████▉   | 11/16 [00:21<00:10,  2.01s/it] 75%|███████▌  | 12/16 [00:24<00:08,  2.17s/it] 81%|████████▏ | 13/16 [00:26<00:06,  2.21s/it] 88%|████████▊ | 14/16 [00:28<00:04,  2.19s/it] 94%|█████████▍| 15/16 [00:30<00:02,  2.12s/it]100%|██████████| 16/16 [00:32<00:00,  1.99s/it]100%|██████████| 16/16 [00:32<00:00,  2.03s/it]
+Dropped genes: 0
+New genes predicted: 20

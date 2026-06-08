@@ -1,0 +1,40 @@
+/mnt/c/Users/Jordan/Documents/CT.gov data processing/Autoscreen/Autoscreen/BioDiscoveryAgent/research_assistant.py:301: SyntaxWarning: invalid escape sequence '\c'
+  research_problem = """Create a bibtex_generation.py file that contains an LLM based AI system for the task of bibtex generation. The LLM should be accessed through API as in LLM_example.py.
+Log directory:  biodiscovery_gpt54_biogrid_BIOGRID2075/test_BIOGRID2075
+Dropped genes: 56
+New genes predicted: 176
+Dropped genes: 58
+New genes predicted: 168
+Dropped genes: 82
+New genes predicted: 145
+Dropped genes: 99
+New genes predicted: 122
+Dropped genes: 75
+New genes predicted: 159
+Dropped genes: 129
+New genes predicted: 100
+Dropped genes: 103
+New genes predicted: 20
+Dropped genes: 71
+New genes predicted: 33
+Dropped genes: 62
+New genes predicted: 14
+Dropped genes: 52
+New genes predicted: 10
+Dropped genes: 39
+New genes predicted: 8
+Dropped genes: 35
+New genes predicted: 8
+Dropped genes: 35
+New genes predicted: 2
+Dropped genes: 30
+New genes predicted: 5
+Dropped genes: 29
+New genes predicted: 0
+Dropped genes: 23
+New genes predicted: 0
+Dropped genes: 24
+New genes predicted: 6
+  0%|          | 0/12 [00:00<?, ?it/s]  8%|▊         | 1/12 [00:01<00:21,  1.91s/it] 17%|█▋        | 2/12 [00:03<00:19,  2.00s/it] 25%|██▌       | 3/12 [00:06<00:20,  2.32s/it] 33%|███▎      | 4/12 [00:08<00:16,  2.05s/it] 42%|████▏     | 5/12 [00:10<00:13,  1.95s/it] 50%|█████     | 6/12 [00:12<00:12,  2.14s/it] 58%|█████▊    | 7/12 [00:14<00:09,  2.00s/it] 67%|██████▋   | 8/12 [00:18<00:10,  2.64s/it] 75%|███████▌  | 9/12 [00:21<00:08,  2.78s/it] 83%|████████▎ | 10/12 [00:23<00:05,  2.71s/it] 92%|█████████▏| 11/12 [00:25<00:02,  2.37s/it]100%|██████████| 12/12 [00:27<00:00,  2.26s/it]100%|██████████| 12/12 [00:27<00:00,  2.30s/it]
+Dropped genes: 0
+New genes predicted: 24

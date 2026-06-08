@@ -583,9 +583,12 @@ def gene_choices_prompt(prompt, num_genes_pick, remaining_genes):
 def process_valid_output(gene_next_sample, curr_sample, gene_sampled,
                          dropped_genes, args):
 
-        new_genes_pred = list(set(gene_next_sample) -
-                              set(gene_sampled) -
-                              set(curr_sample))
+        previously_seen = set(gene_sampled) | set(curr_sample)
+        new_genes_pred = []
+        for gene in gene_next_sample:
+            if gene not in previously_seen:
+                new_genes_pred.append(gene)
+                previously_seen.add(gene)
         print('New genes predicted:', len(new_genes_pred))
         curr_sample = curr_sample + new_genes_pred
 
@@ -604,6 +607,30 @@ def process_valid_output(gene_next_sample, curr_sample, gene_sampled,
 
         else:
             return curr_sample, None
+
+def save_sampled_genes_checkpoint(log_dir, curr_step, gene_sampled, curr_sample,
+                                  args, status, itr, pred_genes=None,
+                                  dropped_genes=None):
+    all_sampled_so_far = gene_sampled + curr_sample[:args.num_genes]
+    output_stem = log_dir + '/sampled_genes_' + str(curr_step + 1)
+    np.save(output_stem + '.npy', all_sampled_so_far)
+
+    metadata = {
+        "step": curr_step,
+        "iteration": itr,
+        "status": status,
+        "requested_genes_this_step": args.num_genes,
+        "previous_sampled_count": len(gene_sampled),
+        "valid_current_step_count": len(curr_sample),
+        "saved_total_count": len(all_sampled_so_far),
+        "complete": len(curr_sample) >= args.num_genes,
+        "parsed_gene_count": len(pred_genes) if pred_genes is not None else None,
+        "dropped_gene_count": len(dropped_genes) if dropped_genes is not None else None,
+        "dropped_genes": [str(gene) for gene in sorted(dropped_genes, key=str)] if dropped_genes is not None else None,
+    }
+    with open(output_stem + '_metadata.json', 'w') as f:
+        json.dump(metadata, f, indent=2)
+    return all_sampled_so_far
 
 def split_outside_parentheses(s, delimiter=','):
     parts = []
@@ -843,6 +870,8 @@ def agent_loop(current_history, steps, use_gpt4, log_dir, args):
 
             curr_sample = []
             genes_remain_summary = None
+            last_pred_genes = None
+            last_dropped_genes = None
 
             ## Help GPT count and not repeat genes
             for itr in range(args.prompt_tries):
@@ -910,19 +939,24 @@ def agent_loop(current_history, steps, use_gpt4, log_dir, args):
                     
                     if args.combinatorial:
                         pred_genes = [tuple(sorted(s.split(" + "))) for s in pred_genes]
-                    gene_next_sample = list(set(pred_genes).intersection(set(
-                        measured_genes)))
+                    measured_genes_set = set(measured_genes)
+                    gene_next_sample = [
+                        gene for gene in pred_genes if gene in measured_genes_set
+                    ]
                     print('Dropped genes:',
                           len(pred_genes) - len(gene_next_sample))
                     dropped_genes = set(pred_genes) - set(gene_next_sample)
+                    last_pred_genes = pred_genes
+                    last_dropped_genes = dropped_genes
                     curr_sample, prompt_update = \
                         process_valid_output(gene_next_sample, curr_sample,
                                              gene_sampled, dropped_genes, args)
+                    save_sampled_genes_checkpoint(
+                        log_dir, curr_step, gene_sampled, curr_sample, args,
+                        "partial" if prompt_update is not None else "complete",
+                        itr, pred_genes=pred_genes, dropped_genes=dropped_genes)
 
                     if prompt_update is None:
-                        all_sampled_so_far = gene_sampled + curr_sample[:args.num_genes]
-                        np.save(log_dir + '/sampled_genes_' + str(curr_step + 1) +
-                            '.npy', all_sampled_so_far)
                         break
                     
                     if itr >= args.prompt_tries - 4:
@@ -939,8 +973,11 @@ def agent_loop(current_history, steps, use_gpt4, log_dir, args):
                                             num_genes_pick, genes_remain_summary)
                         
                 if itr == args.prompt_tries-1:
-                    np.save(log_dir + '/sampled_genes_' + str(curr_step + 1) +
-                            '.npy', gene_sampled)
+                    save_sampled_genes_checkpoint(
+                        log_dir, curr_step, gene_sampled, curr_sample, args,
+                        "partial_exhausted", itr,
+                        pred_genes=last_pred_genes,
+                        dropped_genes=last_dropped_genes)
                 else:
                     prompt_try = prompt + prompt_update
             
@@ -974,6 +1011,8 @@ Please do not critique/make changes if there is no need to make a change.
             
             prompt_try = str(prompt_c)
             curr_sample = []
+            last_pred_genes = None
+            last_dropped_genes = None
             ## Help GPT count and not repeat genes
             for itr in range(args.prompt_tries):
                 if use_gpt4:
@@ -1001,19 +1040,24 @@ Please do not critique/make changes if there is no need to make a change.
                     pred_genes = [p.strip(' \n[]') for p in pred_genes]
                     pred_genes = [p.split('.')[-1].strip(' ') for p in
                                   pred_genes]
-                    gene_next_sample = list(set(pred_genes).intersection(set(
-                        measured_genes)))
+                    measured_genes_set = set(measured_genes)
+                    gene_next_sample = [
+                        gene for gene in pred_genes if gene in measured_genes_set
+                    ]
                     print('Dropped genes:',
                           len(pred_genes) - len(gene_next_sample))
                     dropped_genes = set(pred_genes) - set(gene_next_sample)
+                    last_pred_genes = pred_genes
+                    last_dropped_genes = dropped_genes
                     curr_sample, prompt_update = \
                         process_valid_output(gene_next_sample, curr_sample,
                                              gene_sampled, dropped_genes, args)
+                    save_sampled_genes_checkpoint(
+                        log_dir, curr_step, gene_sampled, curr_sample, args,
+                        "partial" if prompt_update is not None else "complete",
+                        itr, pred_genes=pred_genes, dropped_genes=dropped_genes)
 
                     if prompt_update is None:
-                        all_sampled_so_far = gene_sampled + curr_sample[:args.num_genes]
-                        np.save(log_dir + '/sampled_genes_' + str(curr_step + 1) +
-                            '.npy', all_sampled_so_far)
                         break
                     
                     if itr >= args.prompt_tries - 4:
@@ -1030,8 +1074,11 @@ Please do not critique/make changes if there is no need to make a change.
                                             num_genes_pick, genes_remain_summary)
 
                 if itr == args.prompt_tries-1:
-                    np.save(log_dir + '/sampled_genes_' + str(curr_step + 1) +
-                            '.npy', gene_sampled)
+                    save_sampled_genes_checkpoint(
+                        log_dir, curr_step, gene_sampled, curr_sample, args,
+                        "partial_exhausted", itr,
+                        pred_genes=last_pred_genes,
+                        dropped_genes=last_dropped_genes)
                 else:
                     prompt_try = prompt_c + prompt_update
 

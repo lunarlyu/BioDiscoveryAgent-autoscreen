@@ -1,0 +1,17 @@
+/mnt/c/Users/Jordan/Documents/CT.gov data processing/Autoscreen/Autoscreen/BioDiscoveryAgent/research_assistant.py:301: SyntaxWarning: invalid escape sequence '\c'
+  research_problem = """Create a bibtex_generation.py file that contains an LLM based AI system for the task of bibtex generation. The LLM should be accessed through API as in LLM_example.py.
+Log directory:  biodiscovery_gpt54_biogrid_BIOGRID2038/test_BIOGRID2038
+Dropped genes: 3
+New genes predicted: 230
+Dropped genes: 4
+New genes predicted: 219
+Dropped genes: 14
+New genes predicted: 200
+Dropped genes: 2
+New genes predicted: 228
+Dropped genes: 9
+New genes predicted: 112
+Dropped genes: 2
+New genes predicted: 9
+Dropped genes: 0
+New genes predicted: 2

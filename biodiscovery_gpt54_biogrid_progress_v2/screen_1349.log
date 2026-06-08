@@ -1,0 +1,40 @@
+/mnt/c/Users/Jordan/Documents/CT.gov data processing/Autoscreen/Autoscreen/BioDiscoveryAgent/research_assistant.py:301: SyntaxWarning: invalid escape sequence '\c'
+  research_problem = """Create a bibtex_generation.py file that contains an LLM based AI system for the task of bibtex generation. The LLM should be accessed through API as in LLM_example.py.
+Log directory:  biodiscovery_gpt54_biogrid_BIOGRID1349/test_BIOGRID1349
+Dropped genes: 31
+New genes predicted: 169
+Dropped genes: 68
+New genes predicted: 168
+Dropped genes: 67
+New genes predicted: 171
+Dropped genes: 84
+New genes predicted: 138
+Dropped genes: 96
+New genes predicted: 134
+Dropped genes: 132
+New genes predicted: 88
+Dropped genes: 96
+New genes predicted: 36
+Dropped genes: 51
+New genes predicted: 45
+Dropped genes: 49
+New genes predicted: 2
+Dropped genes: 46
+New genes predicted: 1
+Dropped genes: 39
+New genes predicted: 5
+Dropped genes: 36
+New genes predicted: 7
+Dropped genes: 27
+New genes predicted: 9
+Dropped genes: 27
+New genes predicted: 0
+Dropped genes: 14
+New genes predicted: 8
+Dropped genes: 17
+New genes predicted: 2
+Dropped genes: 13
+New genes predicted: 1
+  0%|          | 0/16 [00:00<?, ?it/s]  6%|▋         | 1/16 [00:02<00:35,  2.35s/it] 12%|█▎        | 2/16 [00:04<00:29,  2.11s/it] 19%|█▉        | 3/16 [00:06<00:25,  1.98s/it] 25%|██▌       | 4/16 [00:08<00:24,  2.07s/it] 31%|███▏      | 5/16 [00:10<00:22,  2.03s/it] 38%|███▊      | 6/16 [00:12<00:19,  1.96s/it] 44%|████▍     | 7/16 [00:14<00:17,  1.95s/it] 50%|█████     | 8/16 [00:15<00:14,  1.85s/it] 56%|█████▋    | 9/16 [00:17<00:12,  1.85s/it] 62%|██████▎   | 10/16 [00:19<00:11,  1.88s/it] 69%|██████▉   | 11/16 [00:21<00:09,  1.94s/it] 75%|███████▌  | 12/16 [00:23<00:07,  1.90s/it] 81%|████████▏ | 13/16 [00:25<00:05,  1.94s/it] 88%|████████▊ | 14/16 [00:27<00:03,  1.88s/it] 94%|█████████▍| 15/16 [00:28<00:01,  1.84s/it]100%|██████████| 16/16 [00:30<00:00,  1.87s/it]100%|██████████| 16/16 [00:30<00:00,  1.93s/it]
+Dropped genes: 0
+New genes predicted: 16
